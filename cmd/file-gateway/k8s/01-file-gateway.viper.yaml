@@ -11,7 +11,10 @@ data:
       grpc_port: 60331
       healthz_port: 60332
       prometheus_port: 60333
+      pub_http: 60151
+      pub_grpc: 60152
       appid: "89089012783789789719823798127398"
       serviceid: "5ce8bbfc-d92d-11ef-8035-b70b3ce69039"
       logdir: "./"
+      log_level: "warning"
       apolloAccessKey: "0147fb70b815403790e8634b899fac07"
