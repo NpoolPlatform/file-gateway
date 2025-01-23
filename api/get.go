@@ -66,17 +66,12 @@ func Get(w http.ResponseWriter, r *http.Request) {
 
 	decoded, err := base64.StdEncoding.DecodeString(string(info))
 	if err != nil {
-		decoded = string(info)
+		decoded = info
 	}
 
 	w.Header().Set("Content-Type", "image/jpeg")
-	w.Header().Set("Content-Length", fmt.Sprint(len((decoded))))
+	w.Header().Set("Content-Length", fmt.Sprint(len(decoded)))
 	w.Header().Set("Content-Disposition", "inline")
-
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
 
 	_, err = w.Write(decoded)
 	if err != nil {
