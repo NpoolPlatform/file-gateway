@@ -1,4 +1,4 @@
-# Npool ledger manager
+# Npool file gateway
 
 [![Test](https://github.com/NpoolPlatform/file-gateway/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/NpoolPlatform/file-gateway/actions/workflows/main.yml)
 

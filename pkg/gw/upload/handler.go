@@ -22,10 +22,9 @@ func NewHandler(ctx context.Context, options ...func(context.Context, *Handler) 
 func WithPayload(payload string, must bool) func(context.Context, *Handler) error {
 	return func(ctx context.Context, h *Handler) error {
 		if payload == "" {
-			return fmt.Errorf("Invalid payload")
+			return fmt.Errorf("invalid payload")
 		}
 		h.Payload = payload
 		return nil
 	}
 }
-

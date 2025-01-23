@@ -6,8 +6,8 @@ package api
 import (
 	"context"
 
-	"github.com/NpoolPlatform/go-service-framework/pkg/logger"
 	"github.com/NpoolPlatform/file-gateway/pkg/gw/upload"
+	"github.com/NpoolPlatform/go-service-framework/pkg/logger"
 	npool "github.com/NpoolPlatform/message/npool/file/gw/v1"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -29,7 +29,7 @@ func (s *Server) Upload(ctx context.Context, in *npool.UploadRequest) (*npool.Up
 		return &npool.UploadResponse{}, status.Error(codes.Internal, err.Error())
 	}
 
-	return &npool.UploadResponse {
+	return &npool.UploadResponse{
 		FileId: info,
 	}, nil
 }
