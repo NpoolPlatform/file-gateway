@@ -4,15 +4,14 @@ import (
 	"context"
 
 	"github.com/NpoolPlatform/file-gateway/api"
-	"github.com/NpoolPlatform/file-gateway/pkg/db"
-	"github.com/NpoolPlatform/file-gateway/pkg/migrator"
 
 	"github.com/NpoolPlatform/file-gateway/pkg/feeder"
-	"github.com/NpoolPlatform/file-gateway/pkg/pubsub"
 	"github.com/NpoolPlatform/file-gateway/pkg/service"
 
 	action "github.com/NpoolPlatform/go-service-framework/pkg/action"
 	"github.com/NpoolPlatform/go-service-framework/pkg/logger"
+	"github.com/NpoolPlatform/go-service-framework/pkg/oss"
+	ossconst "github.com/NpoolPlatform/go-service-framework/pkg/oss/const"
 
 	apicli "github.com/NpoolPlatform/basal-middleware/pkg/client/api"
 
@@ -42,10 +41,7 @@ var runCmd = &cli.Command{
 }
 
 func run(ctx context.Context) error {
-	if err := migrator.Migrate(ctx); err != nil {
-		return err
-	}
-	if err := db.Init(); err != nil {
+	if err := oss.Init(ossconst.ImageStoreKey, "image_bucket"); err != nil {
 		return err
 	}
 	return nil
@@ -58,7 +54,6 @@ func shutdown(ctx context.Context) {
 		"State", "Done",
 		"Error", ctx.Err(),
 	)
-	_ = pubsub.Shutdown(ctx)
 }
 
 func _watch(ctx context.Context, cancel context.CancelFunc, w func(ctx context.Context)) {

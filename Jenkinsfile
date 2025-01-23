@@ -74,6 +74,7 @@ pipeline {
             cd .apollo-base-config
             ./apollo-base-config.sh $APP_ID $TARGET_ENV $vhost
             ./apollo-item-config.sh $APP_ID $TARGET_ENV $vhost database_name file_gateway
+            ./apollo-item-config.sh $APP_ID $TARGET_ENV $vhost image_bucket image-bucket
             cd -
           done
         '''.stripIndent())
