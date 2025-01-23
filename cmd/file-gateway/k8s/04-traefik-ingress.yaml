@@ -21,10 +21,14 @@ spec:
     - host: api.npool.top
       http: &http_rules
         paths:
-          - path: /api/file-gateway
+          - path: /api/file/v1/upload
             backend:
               serviceName: file-gateway
               servicePort: 60330
+          - path: /api/file/v1/images
+            backend:
+              serviceName: file-gateway
+              servicePort: 60151
     - host: api.procyon.vip
       http: *http_rules
     - host: api.xpool.top

@@ -57,10 +57,10 @@ metadata:
   namespace: kube-system
 spec:
   ports:
-    - name: pub_http
+    - name: pub-http
       port: 60151
       targetPort: 60151
-    - name: pub_grpc
+    - name: pub-grpc
       port: 60152
       targetPort: 60152
     - name: http
