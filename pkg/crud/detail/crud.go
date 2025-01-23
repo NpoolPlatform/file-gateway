@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	cruder "github.com/NpoolPlatform/libent-cruder/pkg/cruder"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent"
-	entdetail "github.com/NpoolPlatform/service-template/pkg/db/ent/detail"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent"
+	entdetail "github.com/NpoolPlatform/file-gateway/pkg/db/ent/detail"
 	"github.com/google/uuid"
 )
 

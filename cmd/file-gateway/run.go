@@ -3,13 +3,13 @@ package main
 import (
 	"context"
 
-	"github.com/NpoolPlatform/service-template/api"
-	"github.com/NpoolPlatform/service-template/pkg/db"
-	"github.com/NpoolPlatform/service-template/pkg/migrator"
+	"github.com/NpoolPlatform/file-gateway/api"
+	"github.com/NpoolPlatform/file-gateway/pkg/db"
+	"github.com/NpoolPlatform/file-gateway/pkg/migrator"
 
-	"github.com/NpoolPlatform/service-template/pkg/feeder"
-	"github.com/NpoolPlatform/service-template/pkg/pubsub"
-	"github.com/NpoolPlatform/service-template/pkg/service"
+	"github.com/NpoolPlatform/file-gateway/pkg/feeder"
+	"github.com/NpoolPlatform/file-gateway/pkg/pubsub"
+	"github.com/NpoolPlatform/file-gateway/pkg/service"
 
 	action "github.com/NpoolPlatform/go-service-framework/pkg/action"
 	"github.com/NpoolPlatform/go-service-framework/pkg/logger"
@@ -28,8 +28,8 @@ var runCmd = &cli.Command{
 	Aliases: []string{"s"},
 	Usage:   "Run the daemon",
 	Action: func(c *cli.Context) error {
-		defer feeder.Shutdown()
-		defer service.Shutdown()
+		defer feeder.Shutdown(c.Context)
+		defer service.Shutdown(c.Context)
 
 		return action.Run(
 			c.Context,

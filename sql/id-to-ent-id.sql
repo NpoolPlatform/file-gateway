@@ -1,4 +1,4 @@
-USE service_template;
+USE file_gateway;
 
 DROP PROCEDURE IF EXISTS id_to_ent_id;
 
@@ -14,7 +14,7 @@ BEGIN
   FROM
     information_schema.columns
   WHERE
-    table_schema = 'service_template'
+    table_schema = 'file_gateway'
     AND
     table_name = 'details'
     AND
@@ -31,7 +31,7 @@ BEGIN
   FROM
     information_schema.columns
   WHERE
-    table_schema = 'service_template'
+    table_schema = 'file_gateway'
     AND
     table_name = 'details'
     AND

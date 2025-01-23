@@ -8,10 +8,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/detail"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/ignoreid"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/predicate"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/pubsubmessage"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/detail"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/ignoreid"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/predicate"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/pubsubmessage"
 	"github.com/google/uuid"
 
 	"entgo.io/ent"

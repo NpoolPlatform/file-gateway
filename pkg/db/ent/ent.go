@@ -10,9 +10,9 @@ import (
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/detail"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/ignoreid"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/pubsubmessage"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/detail"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/ignoreid"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/pubsubmessage"
 )
 
 // ent aliases to avoid import conflicts in user's code.

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: service-template
+  name: file-gateway
   namespace: kube-system
   annotations:
     "sidecar.jaegertracing.io/inject": "true"
@@ -9,19 +9,19 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: service-template
+      app: file-gateway
   template:
     metadata:
       labels:
-        app: service-template
+        app: file-gateway
     spec:
       containers:
-        - name: service-template
-          image: uhub.service.ucloud.cn/entropypool/service-template:latest
+        - name: file-gateway
+          image: uhub.service.ucloud.cn/entropypool/file-gateway:latest
           imagePullPolicy: Always
           volumeMounts:
             - name: service-config
-              mountPath: /etc/ServiceTemplate
+              mountPath: /etc/FileGateway
           env:
             - name: ENV_ENVIRONMENT_TARGET
               valueFrom:
@@ -45,15 +45,15 @@ spec:
       volumes:
         - name: service-config
           configMap:
-            name: service-template-config
+            name: file-gateway-config
             items:
               - key: service-conf
-                path: ServiceTemplate.viper.yaml
+                path: FileGateway.viper.yaml
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-template
+  name: file-gateway
   namespace: kube-system
 spec:
   ports:
@@ -70,4 +70,4 @@ spec:
       port: 50333
       targetPort: 50333
   selector:
-    app: service-template
+    app: file-gateway

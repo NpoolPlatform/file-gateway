@@ -8,11 +8,11 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/migrate"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/migrate"
 
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/detail"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/ignoreid"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent/pubsubmessage"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/detail"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/ignoreid"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent/pubsubmessage"
 
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"

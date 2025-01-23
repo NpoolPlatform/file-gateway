@@ -4,12 +4,12 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/NpoolPlatform/service-template/pkg/db"
-	"github.com/NpoolPlatform/service-template/pkg/db/ent"
-	entpubsubmsg "github.com/NpoolPlatform/service-template/pkg/db/ent/pubsubmessage"
+	"github.com/NpoolPlatform/file-gateway/pkg/db"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/ent"
+	entpubsubmsg "github.com/NpoolPlatform/file-gateway/pkg/db/ent/pubsubmessage"
 
 	basetypes "github.com/NpoolPlatform/message/npool/basetypes/v1"
-	sample "github.com/NpoolPlatform/service-template/pkg/pubsub/sample"
+	sample "github.com/NpoolPlatform/file-gateway/pkg/pubsub/sample"
 
 	"github.com/NpoolPlatform/go-service-framework/pkg/logger"
 	"github.com/NpoolPlatform/go-service-framework/pkg/pubsub"

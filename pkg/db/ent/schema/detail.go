@@ -4,7 +4,7 @@ import (
 	"entgo.io/ent"
 	"entgo.io/ent/schema/field"
 	crudermixin "github.com/NpoolPlatform/libent-cruder/pkg/mixin"
-	"github.com/NpoolPlatform/service-template/pkg/db/mixin"
+	"github.com/NpoolPlatform/file-gateway/pkg/db/mixin"
 )
 
 // Detail holds the schema definition for the Detail entity.
