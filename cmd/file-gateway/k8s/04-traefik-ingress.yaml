@@ -24,7 +24,7 @@ spec:
           - path: /api/file-gateway
             backend:
               serviceName: file-gateway
-              servicePort: 50330
+              servicePort: 60330
     - host: api.procyon.vip
       http: *http_rules
     - host: api.xpool.top
