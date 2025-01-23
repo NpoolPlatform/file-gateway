@@ -10,15 +10,17 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
     traefik.ingress.kubernetes.io/router.middlewares:
       kube-system-strip-file-gateway-prefix@kubernetescrd,
-      kube-system-common-headers@kubernetescrd,
-      kube-system-headers-appid-to-body@kubernetescrd,
-      kube-system-headers-userid-to-body@kubernetescrd,
-      kube-system-headers-app-login-token-to-body@kubernetescrd,
-      kube-system-app-rbac-auth@kubernetescrd
+      kube-system-http-redirect-https@kubernetescrd,
+      kube-system-common-headers@kubernetescrd
 
 spec:
+  tls:
+    - hosts:
+        - '*.hk.testnet-archimedes.blobgateway.com'
+        - 'hk.testnet-archimedes.blobgateway.com'
+      secretName: hk-testnet-archimedes-blobgateway-com-tls
   rules:
-    - host: api.npool.top
+    - host: hk.testnet-archimedes.blobgateway.com
       http: &http_rules
         paths:
           - path: /api/file/v1/upload
@@ -29,9 +31,3 @@ spec:
             backend:
               serviceName: file-gateway
               servicePort: 60151
-    - host: api.procyon.vip
-      http: *http_rules
-    - host: api.xpool.top
-      http: *http_rules
-    - host: api.ohhash.com
-      http: *http_rules
