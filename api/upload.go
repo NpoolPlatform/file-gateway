@@ -6,7 +6,7 @@ package api
 import (
 	"context"
 
-	"github.com/NpoolPlatform/file-gateway/pkg/gw/upload"
+	upload1 "github.com/NpoolPlatform/file-gateway/pkg/gw/upload"
 	"github.com/NpoolPlatform/go-service-framework/pkg/logger"
 	npool "github.com/NpoolPlatform/message/npool/file/gw/v1"
 	"google.golang.org/grpc/codes"
@@ -14,9 +14,9 @@ import (
 )
 
 func (s *Server) Upload(ctx context.Context, in *npool.UploadRequest) (*npool.UploadResponse, error) {
-	handler, err := upload.NewHandler(
+	handler, err := upload1.NewHandler(
 		ctx,
-		upload.WithPayload(in.GetPayload(), false),
+		upload1.WithPayload(in.GetPayload(), false),
 	)
 	if err != nil {
 		logger.Sugar().Errorw("Upload", "Error", err)
