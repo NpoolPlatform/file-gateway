@@ -69,7 +69,11 @@ func Image(w http.ResponseWriter, r *http.Request) {
 		decoded = info
 	}
 
-	w.Header().Set("Content-Type", "image/jpeg")
+	if strings.HasPrefix(string(decoded), "<svg xmlns=") {
+		w.Header().Set("Content-Type", "image/svg+xml")
+	} else {
+		w.Header().Set("Content-Type", "image/jpeg")
+	}
 	w.Header().Set("Content-Length", fmt.Sprint(len(decoded)))
 	w.Header().Set("Content-Disposition", "inline")
 
