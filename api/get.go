@@ -13,10 +13,10 @@ import (
 
 func init() {
 	mux := servermux.AppServerMux()
-	mux.HandleFunc("/v1/file/", Get)
+	mux.HandleFunc("/v1/images/", Image)
 }
 
-func Get(w http.ResponseWriter, r *http.Request) {
+func Image(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 	parts := strings.Split(path, "/")
 
@@ -47,7 +47,7 @@ func Get(w http.ResponseWriter, r *http.Request) {
 	)
 	if err != nil {
 		logger.Sugar().Errorw(
-			"Get",
+			"Image",
 			"Error", err,
 		)
 		fmt.Fprintf(w, "%v", err.Error())
@@ -57,7 +57,7 @@ func Get(w http.ResponseWriter, r *http.Request) {
 	info, err := handler.Get(ctx)
 	if err != nil {
 		logger.Sugar().Errorw(
-			"Get",
+			"Image",
 			"Error", err,
 		)
 		fmt.Fprintf(w, "%v", err.Error())
