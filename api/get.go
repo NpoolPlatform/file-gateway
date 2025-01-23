@@ -66,8 +66,7 @@ func Get(w http.ResponseWriter, r *http.Request) {
 
 	decoded, err := base64.StdEncoding.DecodeString(string(info))
 	if err != nil {
-		http.Error(w, "Failed to decode base64 data", http.StatusBadRequest)
-		return
+		decoded = string(info)
 	}
 
 	w.Header().Set("Content-Type", "image/jpeg")
